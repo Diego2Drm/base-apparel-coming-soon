@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root {
+  /* Primary */
+  --Desaturated-Red: #ce9797;
+  --Soft-Red: #f96262;
+  /* Neutral */
+  --Dark-Grayish-Red: #413a3a;
+  /* Gradients */
+  --Linear-primary: 135deg, from #ffffff, to #fff5f5;
+  --Linear-secundary: 135deg, from #f8bfbf, to #ee8c8c;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: linear-gradient(--Linear-secundary);
+}
+
+main {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  width: 37.5rem;
+  height: auto;
+}
+
+/* Logo */
+.img__logo {
+  width: 100%;
+  padding: 1rem 3rem;
+}
+.logo {
+  background: url(./images/logo.svg) no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 14rem;
+  height: 10rem;
+}
+
+/* Img */
+.img__heros {
+  width: 100%;
+}
+
+.hero-mobile {
+  width: 100%;
+}
+
+.hero-desktop {
+  display: none;
+}
+
+/* Content Info */
+.content__info {
+  padding: 3rem;
+}
+
+h1 {
+  color: var(--Desaturated-Red);
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  margin-block-end: 3rem;
+  text-align: center;
+
+}
+
+h1 span {
+  color: var(--Dark-Grayish-Red);
+  font-weight: 600;
+  text-align: center;
+}
+
+p {
+  color: var(--Desaturated-Red);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  margin-block-end: 3rem;
+  text-align: center;
+}
+
+.content__input {
+  width: 100%;
+  height: 6rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-block-end: 1rem;
+}
+
+.content__input button {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -.5rem;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8bfbf 24%, #ee8c8c) 63%;
+  box-shadow: 2px 30px 60px 0px rgba(238, 140, 140, 0.85);
+  cursor: pointer;
+}
+
+.content__input button:hover {
+  transform: translate(1px, 2px);
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  border-radius: 4rem;
+  padding: 1rem 11rem 1rem 1.5rem;
+  outline: none;
+  border: none;
+  border: 1px solid var(--Desaturated-Red);
+
+}
+
+input::placeholder {
+  color: var(--Desaturated-Red);
+}
+
+input:focus {
+  border: 2px solid var(--Soft-Red);
+}
+
+.icon-error {
+  position: absolute;
+  right: 7.5rem;
+}
+
+.alert--text {
+  color: var(--Soft-Red);
+  font-weight: 600;
+  margin-inline-start: 2rem;
+}
+.alert--text-true{
+  color: #0ccd0c;
+  font-weight: 600;
+  margin-inline-start: 2rem;
+  font-size: 1.8rem;
+}
+.inactive {
+  display: none;
+}
+
+
+@media (min-width: 1024px) {
+  section {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 25% 75%;
+  }
+
+  /* Logo */
+  .img__logo{
+    display: block;
+  }
+  .logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 25rem;
+    height: 25rem;
+   margin-inline-start: 4rem;
+  }
+
+  /* content info */
+  .content__info {
+    grid-column: 1 / 2; 
+    grid-row:  2 / 3 ;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 4rem;
+  }
+
+  h1 {
+    font-size: 7rem;
+    text-align: start;
+  }
+  h1 span {
+    padding-right: 8rem;
+  }
+  p {
+    font-size: 3rem;
+    text-align: start;
+    line-height: 5rem;
+  }
+  .content__input {
+    margin-block-start: 4rem;
+    height: 8rem;
+  }
+  .content__input button {
+    padding: 3rem 4rem;
+  }
+  input {
+    font-size: 2rem;
+    padding-inline-end: 15rem;
+  }
+  input:focus {
+    border: 4px solid var(--Soft-Red);
+  }
+  .icon-error {
+    width: 3.4rem;
+    right: 11rem;
+  }
+
+  .alert--text {
+    font-size: 2rem;
+  }
+
+
+  /* img */
+  .img__heros {
+    grid-column: 2 / 3;
+    grid-row: 1 /3;
+    padding: 0;
+  }
+
+  .img__heros .hero-mobile {
+    display: none;
+  }
+
+  .img__heros .hero-desktop {
+    background: url(./images/hero-desktop.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+  }
+
+}
+
+@media (min-width: 1250px){
+  .logo{
+    margin-inline-start: 17rem;
+  }
+  .content__info{
+    width: 72rem;
+    margin: 2rem auto;
+    
+  }
+}
