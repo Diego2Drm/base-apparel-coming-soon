@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div class="img__logo">
+        <div class="logo"></div>
+      </div>
+      <div class="img__heros">
+        <img class="hero-mobile" src="./images/hero-mobile.jpg" alt="hero-mobile">
+        <div class="hero-desktop"> </div>
+      </div>
+      <div class="content__info">
+        <h1>We're <br>
+          <span>coming soon</span>
+        </h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+        <form class="content__input">
+          <input type="email" id="email" placeholder="Email Address">
+          <img class="icon-error inactive" src="./images/icon-error.svg" alt="">
+          <button id="btnSubmit" type="submit">
+            <img class="icon-arrow" src="./images/icon-arrow.svg" alt="">
+          </button>
+        </form>
+        <span class="alert--text-true inactive">Thank you!!!</span>
+        <span class="alert--text inactive">Please provide a valid email</span>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Diego2Drm">Diego Ramírez</a>.
+    </p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('btnSubmit');
+    const textAlert = document.querySelector('.alert--text');
+    const textAlertTrue = document.querySelector('.alert--text-true');
+    const iconError = document.querySelector('.icon-error');
+
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const inputEmail = document.getElementById('email').value;
+
+      validEmail(inputEmail);
+    });
+
+
+    const validEmail = (email) => {
+      let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+      const valid = expReg.test(email);
+
+      if (valid) {
+        textAlertTrue.classList.remove('inactive')
+        textAlert.classList.add('inactive')
+        iconError.classList.add('inactive')
+      } else {
+        textAlert.classList.remove('inactive')
+        iconError.classList.remove('inactive')
+        textAlertTrue.classList.add('inactive')
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>
